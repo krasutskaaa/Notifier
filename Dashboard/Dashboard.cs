@@ -1,8 +1,8 @@
 namespace Notifier
 {
-    public partial class Form1 : Form
+    public partial class dashboard : Form
     {
-        public Form1()
+        public dashboard()
         {
             InitializeComponent();
         }
