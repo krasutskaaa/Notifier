@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             todayTasksPanel = new Panel();
+            todayTasksPictureBox = new PictureBox();
             todayTasksTitleLabel = new Label();
             todayTasksAmountLabel = new Label();
-            todayTasksPictureBox = new PictureBox();
             scheduledTasksPanel = new Panel();
             scheduledTasksPictureBox = new PictureBox();
             scheduledTasksTitleLabel = new Label();
@@ -51,6 +51,11 @@
             searchTextBox = new TextBox();
             searchPanel = new Panel();
             searchPictureBox = new PictureBox();
+            addListButton = new Button();
+            notificationButton = new Button();
+            myListsLabel = new Label();
+            listsListBox = new ListBox();
+            pictureBox1 = new PictureBox();
             todayTasksPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)todayTasksPictureBox).BeginInit();
             scheduledTasksPanel.SuspendLayout();
@@ -63,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)doneTasksPictureBox).BeginInit();
             searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)searchPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // todayTasksPanel
@@ -71,17 +77,28 @@
             todayTasksPanel.Controls.Add(todayTasksPictureBox);
             todayTasksPanel.Controls.Add(todayTasksTitleLabel);
             todayTasksPanel.Controls.Add(todayTasksAmountLabel);
-            todayTasksPanel.Location = new Point(25, 73);
+            todayTasksPanel.Location = new Point(12, 73);
             todayTasksPanel.Name = "todayTasksPanel";
-            todayTasksPanel.Size = new Size(155, 90);
+            todayTasksPanel.Size = new Size(168, 71);
             todayTasksPanel.TabIndex = 0;
+            // 
+            // todayTasksPictureBox
+            // 
+            todayTasksPictureBox.Image = Properties.Resources.calender;
+            todayTasksPictureBox.InitialImage = null;
+            todayTasksPictureBox.Location = new Point(13, 3);
+            todayTasksPictureBox.Name = "todayTasksPictureBox";
+            todayTasksPictureBox.Size = new Size(44, 35);
+            todayTasksPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            todayTasksPictureBox.TabIndex = 2;
+            todayTasksPictureBox.TabStop = false;
             // 
             // todayTasksTitleLabel
             // 
             todayTasksTitleLabel.AutoSize = true;
             todayTasksTitleLabel.Font = new Font("Adobe Gothic Std B", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             todayTasksTitleLabel.ForeColor = Color.Black;
-            todayTasksTitleLabel.Location = new Point(3, 57);
+            todayTasksTitleLabel.Location = new Point(11, 41);
             todayTasksTitleLabel.Name = "todayTasksTitleLabel";
             todayTasksTitleLabel.Size = new Size(69, 25);
             todayTasksTitleLabel.TabIndex = 1;
@@ -91,22 +108,11 @@
             // 
             todayTasksAmountLabel.AutoSize = true;
             todayTasksAmountLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            todayTasksAmountLabel.Location = new Point(118, 13);
+            todayTasksAmountLabel.Location = new Point(131, 13);
             todayTasksAmountLabel.Name = "todayTasksAmountLabel";
             todayTasksAmountLabel.Size = new Size(24, 25);
             todayTasksAmountLabel.TabIndex = 0;
             todayTasksAmountLabel.Text = "0";
-            // 
-            // todayTasksPictureBox
-            // 
-            todayTasksPictureBox.Image = Properties.Resources.calendar__2_;
-            todayTasksPictureBox.InitialImage = null;
-            todayTasksPictureBox.Location = new Point(13, 13);
-            todayTasksPictureBox.Name = "todayTasksPictureBox";
-            todayTasksPictureBox.Size = new Size(44, 35);
-            todayTasksPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            todayTasksPictureBox.TabIndex = 2;
-            todayTasksPictureBox.TabStop = false;
             // 
             // scheduledTasksPanel
             // 
@@ -114,16 +120,16 @@
             scheduledTasksPanel.Controls.Add(scheduledTasksPictureBox);
             scheduledTasksPanel.Controls.Add(scheduledTasksTitleLabel);
             scheduledTasksPanel.Controls.Add(scheduledTasksAmountLabel);
-            scheduledTasksPanel.Location = new Point(207, 73);
+            scheduledTasksPanel.Location = new Point(196, 73);
             scheduledTasksPanel.Name = "scheduledTasksPanel";
-            scheduledTasksPanel.Size = new Size(155, 90);
+            scheduledTasksPanel.Size = new Size(178, 71);
             scheduledTasksPanel.TabIndex = 0;
             // 
             // scheduledTasksPictureBox
             // 
-            scheduledTasksPictureBox.Image = Properties.Resources.today__1_;
+            scheduledTasksPictureBox.Image = Properties.Resources.today;
             scheduledTasksPictureBox.InitialImage = null;
-            scheduledTasksPictureBox.Location = new Point(13, 13);
+            scheduledTasksPictureBox.Location = new Point(13, 3);
             scheduledTasksPictureBox.Name = "scheduledTasksPictureBox";
             scheduledTasksPictureBox.Size = new Size(44, 38);
             scheduledTasksPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -135,7 +141,7 @@
             scheduledTasksTitleLabel.AutoSize = true;
             scheduledTasksTitleLabel.Font = new Font("Adobe Gothic Std B", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             scheduledTasksTitleLabel.ForeColor = Color.Black;
-            scheduledTasksTitleLabel.Location = new Point(3, 57);
+            scheduledTasksTitleLabel.Location = new Point(12, 46);
             scheduledTasksTitleLabel.Name = "scheduledTasksTitleLabel";
             scheduledTasksTitleLabel.Size = new Size(108, 25);
             scheduledTasksTitleLabel.TabIndex = 1;
@@ -145,7 +151,7 @@
             // 
             scheduledTasksAmountLabel.AutoSize = true;
             scheduledTasksAmountLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            scheduledTasksAmountLabel.Location = new Point(118, 13);
+            scheduledTasksAmountLabel.Location = new Point(139, 13);
             scheduledTasksAmountLabel.Name = "scheduledTasksAmountLabel";
             scheduledTasksAmountLabel.Size = new Size(24, 25);
             scheduledTasksAmountLabel.TabIndex = 0;
@@ -157,16 +163,16 @@
             importantTasksPanel.Controls.Add(importantTasksPictureBox);
             importantTasksPanel.Controls.Add(importantTasksTitleLabel);
             importantTasksPanel.Controls.Add(importantTasksAmountLabel);
-            importantTasksPanel.Location = new Point(207, 172);
+            importantTasksPanel.Location = new Point(196, 150);
             importantTasksPanel.Name = "importantTasksPanel";
-            importantTasksPanel.Size = new Size(155, 90);
+            importantTasksPanel.Size = new Size(178, 76);
             importantTasksPanel.TabIndex = 0;
             // 
             // importantTasksPictureBox
             // 
             importantTasksPictureBox.Image = Properties.Resources.star;
             importantTasksPictureBox.InitialImage = null;
-            importantTasksPictureBox.Location = new Point(13, 13);
+            importantTasksPictureBox.Location = new Point(13, 4);
             importantTasksPictureBox.Name = "importantTasksPictureBox";
             importantTasksPictureBox.Size = new Size(44, 35);
             importantTasksPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -178,7 +184,7 @@
             importantTasksTitleLabel.AutoSize = true;
             importantTasksTitleLabel.Font = new Font("Adobe Gothic Std B", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             importantTasksTitleLabel.ForeColor = Color.Black;
-            importantTasksTitleLabel.Location = new Point(3, 51);
+            importantTasksTitleLabel.Location = new Point(13, 42);
             importantTasksTitleLabel.Name = "importantTasksTitleLabel";
             importantTasksTitleLabel.Size = new Size(107, 25);
             importantTasksTitleLabel.TabIndex = 1;
@@ -188,7 +194,7 @@
             // 
             importantTasksAmountLabel.AutoSize = true;
             importantTasksAmountLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            importantTasksAmountLabel.Location = new Point(118, 13);
+            importantTasksAmountLabel.Location = new Point(139, 14);
             importantTasksAmountLabel.Name = "importantTasksAmountLabel";
             importantTasksAmountLabel.Size = new Size(24, 25);
             importantTasksAmountLabel.TabIndex = 0;
@@ -200,16 +206,16 @@
             allTasksPanel.Controls.Add(allTasksPictureBox);
             allTasksPanel.Controls.Add(allTasksTitleLabel);
             allTasksPanel.Controls.Add(allTasksAmountLabel);
-            allTasksPanel.Location = new Point(25, 172);
+            allTasksPanel.Location = new Point(12, 150);
             allTasksPanel.Name = "allTasksPanel";
-            allTasksPanel.Size = new Size(155, 90);
+            allTasksPanel.Size = new Size(168, 76);
             allTasksPanel.TabIndex = 0;
             // 
             // allTasksPictureBox
             // 
             allTasksPictureBox.Image = Properties.Resources.box;
             allTasksPictureBox.InitialImage = null;
-            allTasksPictureBox.Location = new Point(11, 13);
+            allTasksPictureBox.Location = new Point(11, 4);
             allTasksPictureBox.Name = "allTasksPictureBox";
             allTasksPictureBox.Size = new Size(44, 44);
             allTasksPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -221,7 +227,7 @@
             allTasksTitleLabel.AutoSize = true;
             allTasksTitleLabel.Font = new Font("Adobe Gothic Std B", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             allTasksTitleLabel.ForeColor = Color.Black;
-            allTasksTitleLabel.Location = new Point(11, 60);
+            allTasksTitleLabel.Location = new Point(13, 51);
             allTasksTitleLabel.Name = "allTasksTitleLabel";
             allTasksTitleLabel.Size = new Size(37, 25);
             allTasksTitleLabel.TabIndex = 1;
@@ -231,7 +237,7 @@
             // 
             allTasksAmountLabel.AutoSize = true;
             allTasksAmountLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            allTasksAmountLabel.Location = new Point(118, 13);
+            allTasksAmountLabel.Location = new Point(131, 14);
             allTasksAmountLabel.Name = "allTasksAmountLabel";
             allTasksAmountLabel.Size = new Size(24, 25);
             allTasksAmountLabel.TabIndex = 0;
@@ -243,9 +249,9 @@
             doneTasksPanel.Controls.Add(doneTasksPictureBox);
             doneTasksPanel.Controls.Add(doneTasksTitleLabel);
             doneTasksPanel.Controls.Add(doneTasksAmountLabel);
-            doneTasksPanel.Location = new Point(25, 277);
+            doneTasksPanel.Location = new Point(12, 232);
             doneTasksPanel.Name = "doneTasksPanel";
-            doneTasksPanel.Size = new Size(155, 90);
+            doneTasksPanel.Size = new Size(168, 78);
             doneTasksPanel.TabIndex = 0;
             // 
             // doneTasksPictureBox
@@ -274,7 +280,7 @@
             // 
             doneTasksAmountLabel.AutoSize = true;
             doneTasksAmountLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            doneTasksAmountLabel.Location = new Point(118, 13);
+            doneTasksAmountLabel.Location = new Point(131, 13);
             doneTasksAmountLabel.Name = "doneTasksAmountLabel";
             doneTasksAmountLabel.Size = new Size(24, 25);
             doneTasksAmountLabel.TabIndex = 0;
@@ -288,18 +294,19 @@
             searchTextBox.Location = new Point(39, 3);
             searchTextBox.Multiline = true;
             searchTextBox.Name = "searchTextBox";
-            searchTextBox.Size = new Size(225, 31);
+            searchTextBox.Size = new Size(279, 31);
             searchTextBox.TabIndex = 1;
             searchTextBox.Text = "Search";
             // 
             // searchPanel
             // 
             searchPanel.BackColor = SystemColors.Window;
+            searchPanel.Controls.Add(pictureBox1);
             searchPanel.Controls.Add(searchPictureBox);
             searchPanel.Controls.Add(searchTextBox);
-            searchPanel.Location = new Point(25, 20);
+            searchPanel.Location = new Point(12, 20);
             searchPanel.Name = "searchPanel";
-            searchPanel.Size = new Size(337, 34);
+            searchPanel.Size = new Size(362, 34);
             searchPanel.TabIndex = 2;
             // 
             // searchPictureBox
@@ -312,12 +319,75 @@
             searchPictureBox.TabIndex = 2;
             searchPictureBox.TabStop = false;
             // 
+            // addListButton
+            // 
+            addListButton.BackColor = Color.LightBlue;
+            addListButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addListButton.ForeColor = SystemColors.ButtonHighlight;
+            addListButton.Location = new Point(196, 513);
+            addListButton.Name = "addListButton";
+            addListButton.Size = new Size(178, 44);
+            addListButton.TabIndex = 3;
+            addListButton.Text = "Add a list";
+            addListButton.UseVisualStyleBackColor = false;
+            // 
+            // notificationButton
+            // 
+            notificationButton.BackColor = Color.LightBlue;
+            notificationButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            notificationButton.ForeColor = SystemColors.ButtonHighlight;
+            notificationButton.Image = Properties.Resources.envelope;
+            notificationButton.ImageAlign = ContentAlignment.MiddleRight;
+            notificationButton.Location = new Point(12, 513);
+            notificationButton.Name = "notificationButton";
+            notificationButton.Size = new Size(178, 44);
+            notificationButton.TabIndex = 3;
+            notificationButton.Text = "Notification";
+            notificationButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            notificationButton.UseVisualStyleBackColor = false;
+            // 
+            // myListsLabel
+            // 
+            myListsLabel.AutoSize = true;
+            myListsLabel.BackColor = Color.Brown;
+            myListsLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            myListsLabel.ForeColor = Color.White;
+            myListsLabel.Location = new Point(12, 331);
+            myListsLabel.Name = "myListsLabel";
+            myListsLabel.Size = new Size(85, 25);
+            myListsLabel.TabIndex = 4;
+            myListsLabel.Text = "My lists";
+            // 
+            // listsListBox
+            // 
+            listsListBox.BackColor = Color.Gray;
+            listsListBox.BorderStyle = BorderStyle.None;
+            listsListBox.FormattingEnabled = true;
+            listsListBox.Location = new Point(12, 375);
+            listsListBox.Name = "listsListBox";
+            listsListBox.Size = new Size(362, 120);
+            listsListBox.TabIndex = 5;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.microphone;
+            pictureBox1.Location = new Point(323, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 28);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
+            // 
             // dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
             ClientSize = new Size(386, 565);
+            Controls.Add(listsListBox);
+            Controls.Add(myListsLabel);
+            Controls.Add(notificationButton);
+            Controls.Add(addListButton);
             Controls.Add(searchPanel);
             Controls.Add(scheduledTasksPanel);
             Controls.Add(doneTasksPanel);
@@ -345,7 +415,9 @@
             searchPanel.ResumeLayout(false);
             searchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)searchPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -372,5 +444,10 @@
         private TextBox searchTextBox;
         private Panel searchPanel;
         private PictureBox searchPictureBox;
+        private Button addListButton;
+        private Button notificationButton;
+        private Label myListsLabel;
+        private ListBox listsListBox;
+        private PictureBox pictureBox1;
     }
 }
