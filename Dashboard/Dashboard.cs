@@ -7,6 +7,11 @@ namespace Notifier
             InitializeComponent();
         }
 
+        private void addListButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }

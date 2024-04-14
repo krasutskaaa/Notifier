@@ -50,12 +50,13 @@
             doneTasksAmountLabel = new Label();
             searchTextBox = new TextBox();
             searchPanel = new Panel();
+            microphonePictureBox = new PictureBox();
             searchPictureBox = new PictureBox();
             addListButton = new Button();
             notificationButton = new Button();
             myListsLabel = new Label();
             listsListBox = new ListBox();
-            pictureBox1 = new PictureBox();
+            dateTimePicker1 = new DateTimePicker();
             todayTasksPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)todayTasksPictureBox).BeginInit();
             scheduledTasksPanel.SuspendLayout();
@@ -67,8 +68,8 @@
             doneTasksPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)doneTasksPictureBox).BeginInit();
             searchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)microphonePictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)searchPictureBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // todayTasksPanel
@@ -290,7 +291,8 @@
             // 
             searchTextBox.BackColor = SystemColors.Window;
             searchTextBox.BorderStyle = BorderStyle.None;
-            searchTextBox.ForeColor = Color.DimGray;
+            searchTextBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            searchTextBox.ForeColor = Color.Gray;
             searchTextBox.Location = new Point(39, 3);
             searchTextBox.Multiline = true;
             searchTextBox.Name = "searchTextBox";
@@ -301,13 +303,23 @@
             // searchPanel
             // 
             searchPanel.BackColor = SystemColors.Window;
-            searchPanel.Controls.Add(pictureBox1);
+            searchPanel.Controls.Add(microphonePictureBox);
             searchPanel.Controls.Add(searchPictureBox);
             searchPanel.Controls.Add(searchTextBox);
             searchPanel.Location = new Point(12, 20);
             searchPanel.Name = "searchPanel";
             searchPanel.Size = new Size(362, 34);
             searchPanel.TabIndex = 2;
+            // 
+            // microphonePictureBox
+            // 
+            microphonePictureBox.Image = Properties.Resources.microphone;
+            microphonePictureBox.Location = new Point(323, 3);
+            microphonePictureBox.Name = "microphonePictureBox";
+            microphonePictureBox.Size = new Size(39, 28);
+            microphonePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            microphonePictureBox.TabIndex = 3;
+            microphonePictureBox.TabStop = false;
             // 
             // searchPictureBox
             // 
@@ -330,6 +342,7 @@
             addListButton.TabIndex = 3;
             addListButton.Text = "Add a list";
             addListButton.UseVisualStyleBackColor = false;
+            addListButton.Click += addListButton_Click;
             // 
             // notificationButton
             // 
@@ -368,15 +381,12 @@
             listsListBox.Size = new Size(362, 120);
             listsListBox.TabIndex = 5;
             // 
-            // pictureBox1
+            // dateTimePicker1
             // 
-            pictureBox1.Image = Properties.Resources.microphone;
-            pictureBox1.Location = new Point(323, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(39, 28);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            dateTimePicker1.Location = new Point(103, 329);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.TabIndex = 6;
             // 
             // dashboard
             // 
@@ -384,6 +394,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
             ClientSize = new Size(386, 565);
+            Controls.Add(dateTimePicker1);
             Controls.Add(listsListBox);
             Controls.Add(myListsLabel);
             Controls.Add(notificationButton);
@@ -414,8 +425,8 @@
             ((System.ComponentModel.ISupportInitialize)doneTasksPictureBox).EndInit();
             searchPanel.ResumeLayout(false);
             searchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)microphonePictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)searchPictureBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -448,6 +459,7 @@
         private Button notificationButton;
         private Label myListsLabel;
         private ListBox listsListBox;
-        private PictureBox pictureBox1;
+        private PictureBox microphonePictureBox;
+        private DateTimePicker dateTimePicker1;
     }
 }
