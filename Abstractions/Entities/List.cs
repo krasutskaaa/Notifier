@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notifier.Entities;
+namespace Notifier.Abstractions.Entities;
 
-public class List
+public class List : Entity
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; } = Guid.NewGuid();
     public string Name { get; set; }
-   
+    public override string ToString()
+        => $"{Name}";
 }
