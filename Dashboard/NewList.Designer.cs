@@ -68,6 +68,7 @@
             doneButton.TabIndex = 2;
             doneButton.Text = "Done";
             doneButton.UseVisualStyleBackColor = false;
+            doneButton.Click += doneButton_Click;
             // 
             // cancelButton
             // 
@@ -80,6 +81,7 @@
             cancelButton.TabIndex = 2;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
             // 
             // NewList
             // 
