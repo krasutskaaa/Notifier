@@ -31,12 +31,13 @@
             cancelButton = new Button();
             doneButton = new Button();
             label1 = new Label();
-            notificationNameTextBox = new TextBox();
+            newNotificationNameTextBox = new TextBox();
             descriptionTextBox = new TextBox();
-            detailsCheckedListBox = new CheckedListBox();
             detailsLabel = new Label();
             myListsLabel = new Label();
             listsListBox = new ListBox();
+            newNotificationDateTimePicker = new DateTimePicker();
+            isImportantCheckBox = new CheckBox();
             SuspendLayout();
             // 
             // cancelButton
@@ -50,6 +51,7 @@
             cancelButton.TabIndex = 3;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
             // 
             // doneButton
             // 
@@ -63,6 +65,7 @@
             doneButton.TabIndex = 4;
             doneButton.Text = "Done";
             doneButton.UseVisualStyleBackColor = false;
+            doneButton.Click += doneButton_Click;
             // 
             // label1
             // 
@@ -74,15 +77,15 @@
             label1.TabIndex = 5;
             label1.Text = "New notification";
             // 
-            // notificationNameTextBox
+            // newNotificationNameTextBox
             // 
-            notificationNameTextBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            notificationNameTextBox.ForeColor = Color.Gray;
-            notificationNameTextBox.Location = new Point(12, 113);
-            notificationNameTextBox.Name = "notificationNameTextBox";
-            notificationNameTextBox.Size = new Size(362, 28);
-            notificationNameTextBox.TabIndex = 6;
-            notificationNameTextBox.Text = "A name";
+            newNotificationNameTextBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            newNotificationNameTextBox.ForeColor = Color.Gray;
+            newNotificationNameTextBox.Location = new Point(12, 113);
+            newNotificationNameTextBox.Name = "newNotificationNameTextBox";
+            newNotificationNameTextBox.Size = new Size(362, 28);
+            newNotificationNameTextBox.TabIndex = 6;
+            newNotificationNameTextBox.Text = "A name";
             // 
             // descriptionTextBox
             // 
@@ -94,18 +97,6 @@
             descriptionTextBox.Size = new Size(362, 85);
             descriptionTextBox.TabIndex = 8;
             descriptionTextBox.Text = "Description";
-            // 
-            // detailsCheckedListBox
-            // 
-            detailsCheckedListBox.BackColor = Color.Gray;
-            detailsCheckedListBox.BorderStyle = BorderStyle.None;
-            detailsCheckedListBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            detailsCheckedListBox.FormattingEnabled = true;
-            detailsCheckedListBox.Items.AddRange(new object[] { "Date", "Time", "Important" });
-            detailsCheckedListBox.Location = new Point(12, 309);
-            detailsCheckedListBox.Name = "detailsCheckedListBox";
-            detailsCheckedListBox.Size = new Size(362, 69);
-            detailsCheckedListBox.TabIndex = 9;
             // 
             // detailsLabel
             // 
@@ -125,7 +116,7 @@
             myListsLabel.BackColor = Color.Brown;
             myListsLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             myListsLabel.ForeColor = Color.White;
-            myListsLabel.Location = new Point(12, 397);
+            myListsLabel.Location = new Point(12, 415);
             myListsLabel.Name = "myListsLabel";
             myListsLabel.Size = new Size(85, 25);
             myListsLabel.TabIndex = 11;
@@ -138,10 +129,29 @@
             listsListBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
             listsListBox.FormattingEnabled = true;
             listsListBox.ItemHeight = 22;
-            listsListBox.Location = new Point(12, 433);
+            listsListBox.Location = new Point(12, 443);
             listsListBox.Name = "listsListBox";
-            listsListBox.Size = new Size(362, 88);
+            listsListBox.Size = new Size(362, 110);
             listsListBox.TabIndex = 12;
+            // 
+            // newNotificationDateTimePicker
+            // 
+            newNotificationDateTimePicker.Location = new Point(12, 312);
+            newNotificationDateTimePicker.Name = "newNotificationDateTimePicker";
+            newNotificationDateTimePicker.Size = new Size(362, 27);
+            newNotificationDateTimePicker.TabIndex = 13;
+            newNotificationDateTimePicker.Value = new DateTime(2023, 1, 1, 0, 0, 0, 0);
+            // 
+            // isImportantCheckBox
+            // 
+            isImportantCheckBox.AutoSize = true;
+            isImportantCheckBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            isImportantCheckBox.Location = new Point(12, 345);
+            isImportantCheckBox.Name = "isImportantCheckBox";
+            isImportantCheckBox.Size = new Size(106, 26);
+            isImportantCheckBox.TabIndex = 14;
+            isImportantCheckBox.Text = "Important";
+            isImportantCheckBox.UseVisualStyleBackColor = true;
             // 
             // NewNotification
             // 
@@ -149,18 +159,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
             ClientSize = new Size(386, 565);
+            Controls.Add(isImportantCheckBox);
+            Controls.Add(newNotificationDateTimePicker);
             Controls.Add(listsListBox);
             Controls.Add(myListsLabel);
             Controls.Add(detailsLabel);
-            Controls.Add(detailsCheckedListBox);
             Controls.Add(descriptionTextBox);
-            Controls.Add(notificationNameTextBox);
+            Controls.Add(newNotificationNameTextBox);
             Controls.Add(label1);
             Controls.Add(doneButton);
             Controls.Add(cancelButton);
             FormBorderStyle = FormBorderStyle.None;
             Name = "NewNotification";
             Text = "NewNotification";
+            Load += OnFormLoaded;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -170,11 +182,12 @@
         private Button cancelButton;
         private Button doneButton;
         private Label label1;
-        private TextBox notificationNameTextBox;
+        private TextBox newNotificationNameTextBox;
         private TextBox descriptionTextBox;
-        private CheckedListBox detailsCheckedListBox;
         private Label detailsLabel;
         private Label myListsLabel;
         private ListBox listsListBox;
+        private DateTimePicker newNotificationDateTimePicker;
+        private CheckBox isImportantCheckBox;
     }
 }
