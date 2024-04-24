@@ -71,8 +71,12 @@
             Controls.Add(notificationLocationlabel);
             Controls.Add(searchResulListNamelabel);
             Controls.Add(searchResultNotificationNameLabel);
+            Margin = new Padding(0);
             Name = "SearchResultInfo";
             Size = new Size(283, 54);
+            Click += SearchResultInfo_Click;
+            MouseLeave += SearchResultInfo_MouseLeave;
+            MouseHover += SearchResultInfo_MouseHover;
             ResumeLayout(false);
             PerformLayout();
         }
