@@ -12,21 +12,19 @@ namespace Notifier.Database
         public void RemoveList(string name);
         public void RemoveNotification(Guid listId, string name);
         public void EditNotification(Notification editedNotification);
-        //void LoadNotifications();
-        IEnumerable<List> GetALLLists();
-        IEnumerable<Notification> GetALLNotifications();
+        IEnumerable<List> GetAllLists();
+        IEnumerable<Notification> GetAllNotifications();
         IEnumerable<Notification> GetDoneNotifications();
         IEnumerable<Notification> GetImportantNotifications();
         IEnumerable<Notification> GetTodayNotifications();
         IEnumerable<Notification> GetScheduledNotifications();
-        //IEnumerable<string> GetALLNotificationsNames();
         void AddList(string? name);
         IEnumerable<Notification> GetNotificationsByListId(Guid listId);
         void AddNotification(Guid listId, string name,
         string description, DateTime dateTime, bool isImportant);
-        public SearchResult GetSearchResult(string key);
-        public List GetListByListId(Guid listId);
-        //public IEnumerable<SearchResult> GetSearchResult(string key);
+        public List GetListById(Guid Id);
+        public IEnumerable<SearchResult> GetSearchResults(string key);
+        public Notification GetNotificationByNotificationId(Guid notificationId);
 
     }
 }

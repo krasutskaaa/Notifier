@@ -13,25 +13,7 @@ namespace Notifier.Database;
 [Authorize]
 public class ToDoListDatabaseManager : IDatabase
 {
-    //public void LoadNotifications()
-    //{
-    //    using (ToDoListDatabase db = new ToDoListDatabase())
-    //    {
-    //        db.Notifications.Load();
-    //    }
-    //}
-    //public IEnumerable<string> GetALLNotificationsNames()
-    //{
-    //    using (ToDoListDatabase db = new ToDoListDatabase())
-    //    {
-    //        var notifications = db.Notifications.ToArray();
-            
-    //        var notificationsNames = notifications.Select(notification => notification.Name).ToArray();
-    //        return notificationsNames;
-    //    }
-    //}
-
-    public IEnumerable<List> GetALLLists()
+    public IEnumerable<List> GetAllLists()
     {
         using (ToDoListDatabase db = new ToDoListDatabase())
         {
@@ -39,7 +21,7 @@ public class ToDoListDatabaseManager : IDatabase
             return lists;
         }
     }
-    public IEnumerable<Notification> GetALLNotifications()
+    public IEnumerable<Notification> GetAllNotifications()
     {
         using (ToDoListDatabase db = new ToDoListDatabase())
         {
@@ -69,8 +51,8 @@ public class ToDoListDatabaseManager : IDatabase
     {
         using (ToDoListDatabase db = new ToDoListDatabase())
         {
-            var notifications = db.Notifications.Where(notifications =>
-            notifications.DateTime.Equals(DateTime.Today)).ToArray();
+            var notifications = db.Notifications.Where(notification =>
+            notification.DateTime.Equals(DateTime.Today)).ToArray();
             return notifications;
         }
     }
@@ -78,8 +60,9 @@ public class ToDoListDatabaseManager : IDatabase
     {
         using (ToDoListDatabase db = new ToDoListDatabase())
         {
-            var notifications = db.Notifications.Where(notifications =>
-            !notifications.DateTime.Equals(default(DateTime))).ToArray();
+            DateTime dateTimeToCompare = new DateTime(2024, 01, 01);
+            var notifications = db.Notifications.Where(notification =>
+            !(notification.DateTime.Equals(dateTimeToCompare))).ToArray();
             return notifications;
         }
     }
@@ -159,7 +142,6 @@ public class ToDoListDatabaseManager : IDatabase
                 notification.IsDone = editedNotification.IsDone;
                 notification.DateTime = editedNotification.DateTime;
                 db.SaveChanges();
-
             }
         }
     }
@@ -173,82 +155,74 @@ public class ToDoListDatabaseManager : IDatabase
             return notifications;
         }
     }
-    public List GetListByListId(Guid listId)
+    public Notification GetNotificationByNotificationId(Guid notificationId)
     {
         using (ToDoListDatabase db = new ToDoListDatabase())
         {
-            if (!db.Lists.Any(list => list.Id.Equals(listId)))
+            if (!db.Notifications.Any(notification => notification.Id.Equals(notificationId)))
+                MessageBox.Show("There isn't any notification with such id");
+            var notification = db.Notifications.FirstOrDefault(notification => notification.Id.Equals(notificationId));
+            return notification;
+        }
+    }
+
+    public List GetListById(Guid Id)
+    {
+        using (ToDoListDatabase db = new ToDoListDatabase())
+        {
+            if (!db.Lists.Any(list => list.Id.Equals(Id)))
                 MessageBox.Show("There aren't  any lists!");
-            var list = db.Lists.FirstOrDefault(list => list.Id.Equals(listId));
+            var list = db.Lists.FirstOrDefault(list => list.Id.Equals(Id));
             return list;
         }
     }
-    //public IEnumerable<SearchResult> GetSearchResult(string key)
-    //{
-    //    using (ToDoListDatabase db = new ToDoListDatabase())
-    //    {
-    //        var notifications = db.Notifications.Where(notification => notification.Name.Contains(key + "%")).ToList();
-    //        if(notifications is not null)
-    //        {
-    //            var lists = db.Lists.Where(list => notifications.Select(notification => notification.ListId).Contains(list.Id)).ToList();
-    //            foreach (var notification in notifications)
-    //            {
-    //                var list = lists.FirstOrDefault(list => list.Id.Equals(notification.ListId));
-    //                if (list is not null)
-    //                {
-    //                    SearchResult currentSearchResult = new SearchResult
-    //                    {
-    //                        NotificationName = notification.Name,
-    //                        ListName = list.Name
-    //                    };
-    //                    yield return currentSearchResult;
-    //                }
-    //                else
-    //                {
-    //                    SearchResult sr = new SearchResult { NotificationName = "Notification isn't found", ListName = "List isn't found" };
-    //                    yield return sr;
-    //                }
-
-    //            }
-    //        }
-    //        else
-    //        {
-    //            SearchResult sr = new SearchResult { NotificationName = "Notification isn't found", ListName = "" };
-    //            yield return sr;
-    //        }
-
-
-    //    }
-    //}
-
-    public SearchResult GetSearchResult(string key)
+    public IEnumerable<SearchResult> GetSearchResults(string key)
     {
         using (ToDoListDatabase db = new ToDoListDatabase())
         {
-            var notification = db.Notifications.FirstOrDefault(notification => notification.Name.StartsWith(key));
-            if (notification is not null)
+            var notifications = db.Notifications.Where(notification => notification.Name.StartsWith(key)).ToArray();
+            if (notifications is not null)
             {
-                var list = db.Lists.FirstOrDefault(list => list.Id.Equals(notification.ListId));
-                if (list is not null)
+                var lists = db.Lists.Where(list => notifications.Select(notification => notification.ListId).Contains(list.Id)).ToArray();
+                foreach (var notification in notifications)
                 {
-                    SearchResult sr = new SearchResult { NotificationName = notification.Name, ListName = list.Name };
-                    return sr;
+                    var list = lists.FirstOrDefault(list => list.Id.Equals(notification.ListId));
+                    if (list is not null)
+                    {
+                        SearchResult currentSearchResult = new SearchResult
+                        {
+                            NotificationName = notification.Name,
+                            NotificationId = notification.Id,
+                            ListName = list.Name
+                        };
+                        yield return currentSearchResult;
+                    }
+                    else
+                    {
+                        SearchResult sr = new SearchResult 
+                        { 
+                            NotificationName = "No such result", 
+                            ListName = "" ,
+                            NotificationId = Guid.Empty 
+                        };
+                        yield return sr;
+                    }
                 }
-                else
-                {
-                    SearchResult sr = new SearchResult { NotificationName = "Notification isn't found", ListName = "List isn't found" };
-                    return sr;
-                }
-
             }
             else
             {
-                SearchResult sr = new SearchResult { NotificationName = "Notification isn't found", ListName = "" };
-                return sr;
+                SearchResult sr = new SearchResult 
+                {
+                    NotificationName = "No such result",
+                    ListName = "",
+                    NotificationId = Guid.Empty};
+                yield return sr;
             }
+
 
         }
     }
+
 
 
 
