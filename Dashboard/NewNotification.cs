@@ -37,16 +37,14 @@ public partial class NewNotification : Form
     {
         if(_sender is MainForm)
         {
-            var lists = _database?.GetALLLists().ToArray();
+            var lists = _database?.GetAllLists().ToArray();
             listsListBox.Items.AddRange(lists);
         }
         else
         {
-            List list = _database.GetListByListId(_listId);
+            List list = _database.GetListById(_listId);
             listsListBox.Items.Add(list);
         }
-
-
     }
 
     private void doneButton_Click(object sender, EventArgs e)
@@ -55,10 +53,6 @@ public partial class NewNotification : Form
         string? name = newNotificationNameTextBox.Text;
         string? description = descriptionTextBox.Text;
         DateTime dateTime = newNotificationDateTimePicker.Value;
-        if (newNotificationDateTimePicker.Value.Equals("01.01.2023"))
-        {
-            dateTime = default(DateTime);
-        }
         bool isImportant = isImportantCheckBox.Checked;
         var selectedList = listsListBox.SelectedItem as List;
         if (selectedList is null || name == "")
@@ -77,7 +71,8 @@ public partial class NewNotification : Form
             }
             else
             {
-                ListInfo.instance?.UpdateListNotificationsBox();
+               ListInfo.instance?.UpdateNotificationsListBox(_listId);
+               MainForm.instance.UpdateDashboard();
             }
             
             this.Close();

@@ -38,7 +38,7 @@
             // newListPictureBox
             // 
             newListPictureBox.Image = Properties.Resources.todo_list;
-            newListPictureBox.Location = new Point(128, 23);
+            newListPictureBox.Location = new Point(156, 23);
             newListPictureBox.Name = "newListPictureBox";
             newListPictureBox.Size = new Size(90, 69);
             newListPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -52,7 +52,7 @@
             newListTextBox.ForeColor = Color.Gray;
             newListTextBox.Location = new Point(59, 108);
             newListTextBox.Name = "newListTextBox";
-            newListTextBox.Size = new Size(238, 30);
+            newListTextBox.Size = new Size(286, 30);
             newListTextBox.TabIndex = 1;
             newListTextBox.Text = "A list name";
             // 
@@ -60,11 +60,11 @@
             // 
             doneButton.BackColor = Color.LightBlue;
             doneButton.FlatAppearance.BorderColor = Color.Brown;
-            doneButton.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            doneButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             doneButton.ForeColor = SystemColors.ButtonHighlight;
-            doneButton.Location = new Point(177, 158);
+            doneButton.Location = new Point(205, 165);
             doneButton.Name = "doneButton";
-            doneButton.Size = new Size(157, 32);
+            doneButton.Size = new Size(189, 39);
             doneButton.TabIndex = 2;
             doneButton.Text = "Done";
             doneButton.UseVisualStyleBackColor = false;
@@ -73,11 +73,11 @@
             // cancelButton
             // 
             cancelButton.BackColor = Color.LightBlue;
-            cancelButton.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            cancelButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             cancelButton.ForeColor = SystemColors.ButtonHighlight;
-            cancelButton.Location = new Point(12, 158);
+            cancelButton.Location = new Point(12, 165);
             cancelButton.Name = "cancelButton";
-            cancelButton.Size = new Size(149, 32);
+            cancelButton.Size = new Size(187, 39);
             cancelButton.TabIndex = 2;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = false;
@@ -88,13 +88,14 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
-            ClientSize = new Size(346, 216);
+            ClientSize = new Size(404, 216);
             Controls.Add(cancelButton);
             Controls.Add(doneButton);
             Controls.Add(newListTextBox);
             Controls.Add(newListPictureBox);
             FormBorderStyle = FormBorderStyle.None;
             Name = "NewList";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "AddList";
             ((System.ComponentModel.ISupportInitialize)newListPictureBox).EndInit();
             ResumeLayout(false);

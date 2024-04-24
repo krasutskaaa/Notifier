@@ -1,5 +1,6 @@
 ﻿using Notifier.Abstractions.Entities;
 using Notifier.Database;
+using Notifier.UserControls;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,40 +19,45 @@ namespace Notifier.Dashboard
         private IDatabase _database;
         private Notification _notification;
         private string _listName;
-        public NotificationInfo(Notification notification, string listName)
+        private object _sender;
+        public NotificationInfo(object sender,Notification notification, string listName)
         {
             _database = new ToDoListDatabaseManager();
             this._notification = notification;
             this._listName = listName;
+            _sender = sender;
             InitializeComponent();
-
-
         }
         public void OnFormLoaded(object sender, EventArgs e)
         {
+            
             notificationLabel.Text = _notification.Name;
             descriptionTextBox.Text = _notification.Description;
             notificationDateTimePicker.Value = _notification.DateTime;
             isImportantCheckBox.Checked = _notification.IsImportant;
             isDoneCheckBox.Checked = _notification.IsDone;
-            backwardsButton.Text = _listName;
+            if (_sender is SearchResultInfo)
+            {
+                backwardsButton.Text = "Lists";
+            }
+            else 
+            {
+                backwardsButton.Text = _listName;
+            }
 
         }
 
         private void backwardsButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            
         }
 
         private void deleteNotificationButton_Click(object sender, EventArgs e)
         {
             _database.RemoveNotification(_notification.ListId, _notification.Name);
             MessageBox.Show($"The {notificationLabel.Text} was successfully deleted");
-            ListInfo.instance.UpdateListNotificationsBox();
+            ListInfo.instance?.UpdateNotificationsListBox(_notification.ListId);
             MainForm.instance.UpdateDashboard();
-            List locationList = _database.GetListByListId(_notification.ListId);
-
             this.Close();
         }
 
@@ -65,5 +71,7 @@ namespace Notifier.Dashboard
             MessageBox.Show($"The {notificationLabel.Text} was successfully edited");
             MainForm.instance.UpdateDashboard();
         }
+
+        
     }
 }

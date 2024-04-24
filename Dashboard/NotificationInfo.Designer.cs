@@ -44,14 +44,14 @@
             backwardsButton.BackColor = Color.Gray;
             backwardsButton.FlatAppearance.BorderColor = Color.Gray;
             backwardsButton.FlatStyle = FlatStyle.Flat;
-            backwardsButton.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            backwardsButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             backwardsButton.ForeColor = SystemColors.ButtonHighlight;
             backwardsButton.Image = Properties.Resources.arrow_left;
             backwardsButton.ImageAlign = ContentAlignment.MiddleLeft;
             backwardsButton.Location = new Point(12, 25);
             backwardsButton.Name = "backwardsButton";
             backwardsButton.RightToLeft = RightToLeft.No;
-            backwardsButton.Size = new Size(161, 30);
+            backwardsButton.Size = new Size(176, 30);
             backwardsButton.TabIndex = 2;
             backwardsButton.Text = "A List name";
             backwardsButton.TextAlign = ContentAlignment.MiddleRight;
@@ -63,9 +63,9 @@
             deleteNotificationButton.BackColor = Color.LightBlue;
             deleteNotificationButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             deleteNotificationButton.ForeColor = SystemColors.ButtonHighlight;
-            deleteNotificationButton.Location = new Point(194, 509);
+            deleteNotificationButton.Location = new Point(207, 556);
             deleteNotificationButton.Name = "deleteNotificationButton";
-            deleteNotificationButton.Size = new Size(180, 44);
+            deleteNotificationButton.Size = new Size(185, 44);
             deleteNotificationButton.TabIndex = 7;
             deleteNotificationButton.Text = "Delete ";
             deleteNotificationButton.UseVisualStyleBackColor = false;
@@ -76,14 +76,14 @@
             descriptionTextBox.BackColor = Color.White;
             descriptionTextBox.BorderStyle = BorderStyle.None;
             descriptionTextBox.Enabled = false;
-            descriptionTextBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            descriptionTextBox.ForeColor = Color.Black;
+            descriptionTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            descriptionTextBox.ForeColor = Color.Gray;
             descriptionTextBox.Location = new Point(12, 117);
             descriptionTextBox.Multiline = true;
             descriptionTextBox.Name = "descriptionTextBox";
-            descriptionTextBox.Size = new Size(362, 110);
+            descriptionTextBox.Size = new Size(380, 110);
             descriptionTextBox.TabIndex = 9;
-            descriptionTextBox.Text = " ";
+            descriptionTextBox.Text = " Description";
             // 
             // detailsLabel
             // 
@@ -91,7 +91,7 @@
             detailsLabel.BackColor = Color.Brown;
             detailsLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             detailsLabel.ForeColor = Color.White;
-            detailsLabel.Location = new Point(12, 242);
+            detailsLabel.Location = new Point(12, 273);
             detailsLabel.Name = "detailsLabel";
             detailsLabel.Size = new Size(71, 25);
             detailsLabel.TabIndex = 11;
@@ -99,19 +99,22 @@
             // 
             // notificationDateTimePicker
             // 
-            notificationDateTimePicker.Location = new Point(12, 287);
+            notificationDateTimePicker.CalendarFont = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            notificationDateTimePicker.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            notificationDateTimePicker.Location = new Point(12, 313);
+            notificationDateTimePicker.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             notificationDateTimePicker.Name = "notificationDateTimePicker";
-            notificationDateTimePicker.Size = new Size(362, 27);
+            notificationDateTimePicker.Size = new Size(380, 30);
             notificationDateTimePicker.TabIndex = 14;
-            notificationDateTimePicker.Value = new DateTime(2023, 1, 1, 0, 0, 0, 0);
+            notificationDateTimePicker.Value = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // isImportantCheckBox
             // 
             isImportantCheckBox.AutoSize = true;
-            isImportantCheckBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            isImportantCheckBox.Location = new Point(12, 334);
+            isImportantCheckBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            isImportantCheckBox.Location = new Point(12, 356);
             isImportantCheckBox.Name = "isImportantCheckBox";
-            isImportantCheckBox.Size = new Size(106, 26);
+            isImportantCheckBox.Size = new Size(115, 29);
             isImportantCheckBox.TabIndex = 15;
             isImportantCheckBox.Text = "Important";
             isImportantCheckBox.UseVisualStyleBackColor = true;
@@ -119,10 +122,10 @@
             // isDoneCheckBox
             // 
             isDoneCheckBox.AutoSize = true;
-            isDoneCheckBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            isDoneCheckBox.Location = new Point(12, 366);
+            isDoneCheckBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            isDoneCheckBox.Location = new Point(12, 391);
             isDoneCheckBox.Name = "isDoneCheckBox";
-            isDoneCheckBox.Size = new Size(75, 26);
+            isDoneCheckBox.Size = new Size(81, 29);
             isDoneCheckBox.TabIndex = 16;
             isDoneCheckBox.Text = "Done";
             isDoneCheckBox.UseVisualStyleBackColor = true;
@@ -132,9 +135,9 @@
             editButton.BackColor = Color.LightBlue;
             editButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             editButton.ForeColor = SystemColors.ButtonHighlight;
-            editButton.Location = new Point(12, 509);
+            editButton.Location = new Point(12, 556);
             editButton.Name = "editButton";
-            editButton.Size = new Size(176, 44);
+            editButton.Size = new Size(189, 44);
             editButton.TabIndex = 18;
             editButton.Text = "Edit";
             editButton.UseVisualStyleBackColor = false;
@@ -157,7 +160,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
-            ClientSize = new Size(386, 565);
+            ClientSize = new Size(404, 612);
             Controls.Add(notificationLabel);
             Controls.Add(editButton);
             Controls.Add(isDoneCheckBox);
@@ -169,6 +172,7 @@
             Controls.Add(backwardsButton);
             FormBorderStyle = FormBorderStyle.None;
             Name = "NotificationInfo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "NotificationInfo";
             Load += OnFormLoaded;
             ResumeLayout(false);

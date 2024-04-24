@@ -24,7 +24,6 @@ namespace Notifier.Dashboard
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
 
         private void doneButton_Click(object sender, EventArgs e)
@@ -34,7 +33,6 @@ namespace Notifier.Dashboard
             MessageBox.Show($"A new {name} list was successfully created");
             MainForm.instance?.UpdateListsListBox();
             this.Close();
-            
         }
     }
 }

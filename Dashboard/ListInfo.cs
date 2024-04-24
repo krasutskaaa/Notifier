@@ -29,17 +29,7 @@ namespace Notifier.Dashboard
         {
             listLabel.Text = _list.Name;
             var notifications = _database.GetNotificationsByListId(_list.Id).ToArray();
-            if (notifications != null)
-            {
-                notificationsListBox.Show();
-                notificationsListBox.Items.AddRange(notifications);
-
-            }
-            else
-            {
-                notificationsListBox.Hide();
-            }
-
+            notificationsListBox.Items.AddRange(notifications);
         }
 
         private void backwardsButton_Click(object sender, EventArgs e)
@@ -58,29 +48,22 @@ namespace Notifier.Dashboard
         {
             _database.RemoveList(listLabel.Text);
             MessageBox.Show($"The {listLabel.Text} list was successfully deleted");
+            MainForm.instance.UpdateListsListBox();
+            MainForm.instance.UpdateDashboard();
             this.Close();
         }
-        public void UpdateListNotificationsBox()
+        public void UpdateNotificationsListBox(Guid listId)
         {
             notificationsListBox.Items.Clear();
-            var notifications = _database.GetNotificationsByListId(_list.Id).ToArray();
-            if (notifications != null)
-            {
-               
-                notificationsListBox.Items.AddRange(notifications);
-
-            }
-            else
-            {
-                notificationsListBox.Hide();
-            }
+            var notifications = _database.GetAllNotifications().ToArray();
+            notificationsListBox.Items.AddRange(notifications);
         }
 
         private void notificationsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedNotification = notificationsListBox.SelectedItem as Notification;
             if (selectedNotification is null) return;
-            var notificationInfoForm = new NotificationInfo(selectedNotification, _list.Name);
+            var notificationInfoForm = new NotificationInfo(this,selectedNotification, _list.Name);
             notificationInfoForm.ShowDialog();
         }
     }

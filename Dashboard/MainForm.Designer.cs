@@ -74,7 +74,7 @@
             // 
             // todayTasksPanel
             // 
-            todayTasksPanel.BackColor = SystemColors.MenuBar;
+            todayTasksPanel.BackColor = SystemColors.ButtonHighlight;
             todayTasksPanel.Controls.Add(todayTasksPictureBox);
             todayTasksPanel.Controls.Add(todayTasksTitleLabel);
             todayTasksPanel.Controls.Add(todayTasksAmountLabel);
@@ -117,7 +117,7 @@
             // 
             // scheduledTasksPanel
             // 
-            scheduledTasksPanel.BackColor = SystemColors.MenuBar;
+            scheduledTasksPanel.BackColor = SystemColors.ButtonHighlight;
             scheduledTasksPanel.Controls.Add(scheduledTasksPictureBox);
             scheduledTasksPanel.Controls.Add(scheduledTasksTitleLabel);
             scheduledTasksPanel.Controls.Add(scheduledTasksAmountLabel);
@@ -160,7 +160,7 @@
             // 
             // importantTasksPanel
             // 
-            importantTasksPanel.BackColor = SystemColors.MenuBar;
+            importantTasksPanel.BackColor = SystemColors.ButtonHighlight;
             importantTasksPanel.Controls.Add(importantTasksPictureBox);
             importantTasksPanel.Controls.Add(importantTasksTitleLabel);
             importantTasksPanel.Controls.Add(importantTasksAmountLabel);
@@ -203,7 +203,7 @@
             // 
             // allTasksPanel
             // 
-            allTasksPanel.BackColor = SystemColors.MenuBar;
+            allTasksPanel.BackColor = SystemColors.ButtonHighlight;
             allTasksPanel.Controls.Add(allTasksPictureBox);
             allTasksPanel.Controls.Add(allTasksTitleLabel);
             allTasksPanel.Controls.Add(allTasksAmountLabel);
@@ -246,7 +246,7 @@
             // 
             // doneTasksPanel
             // 
-            doneTasksPanel.BackColor = SystemColors.MenuBar;
+            doneTasksPanel.BackColor = SystemColors.ButtonHighlight;
             doneTasksPanel.Controls.Add(doneTasksPictureBox);
             doneTasksPanel.Controls.Add(doneTasksTitleLabel);
             doneTasksPanel.Controls.Add(doneTasksAmountLabel);
@@ -289,11 +289,11 @@
             // 
             // searchTextBox
             // 
-            searchTextBox.BackColor = SystemColors.Window;
+            searchTextBox.BackColor = SystemColors.ButtonHighlight;
             searchTextBox.BorderStyle = BorderStyle.None;
-            searchTextBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            searchTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             searchTextBox.ForeColor = Color.Gray;
-            searchTextBox.Location = new Point(39, 3);
+            searchTextBox.Location = new Point(38, 3);
             searchTextBox.Multiline = true;
             searchTextBox.Name = "searchTextBox";
             searchTextBox.Size = new Size(279, 31);
@@ -302,7 +302,7 @@
             // 
             // searchPanel
             // 
-            searchPanel.BackColor = SystemColors.Window;
+            searchPanel.BackColor = SystemColors.ButtonHighlight;
             searchPanel.Controls.Add(microphonePictureBox);
             searchPanel.Controls.Add(searchPictureBox);
             searchPanel.Controls.Add(searchTextBox);
@@ -377,12 +377,12 @@
             // 
             listsListBox.BackColor = Color.Gray;
             listsListBox.BorderStyle = BorderStyle.None;
-            listsListBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            listsListBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             listsListBox.FormattingEnabled = true;
-            listsListBox.ItemHeight = 22;
+            listsListBox.ItemHeight = 25;
             listsListBox.Location = new Point(12, 375);
             listsListBox.Name = "listsListBox";
-            listsListBox.Size = new Size(362, 110);
+            listsListBox.Size = new Size(362, 125);
             listsListBox.TabIndex = 5;
             listsListBox.SelectedIndexChanged += listsListBox_selectedIndexChanged;
             // 
@@ -413,6 +413,7 @@
             Controls.Add(todayTasksPanel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Load += OnFormLoaded;
             todayTasksPanel.ResumeLayout(false);
             todayTasksPanel.PerformLayout();

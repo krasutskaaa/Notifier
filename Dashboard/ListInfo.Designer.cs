@@ -40,7 +40,7 @@
             backwardsButton.BackColor = Color.Gray;
             backwardsButton.FlatAppearance.BorderColor = Color.Gray;
             backwardsButton.FlatStyle = FlatStyle.Flat;
-            backwardsButton.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            backwardsButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             backwardsButton.ForeColor = SystemColors.ButtonHighlight;
             backwardsButton.Image = Properties.Resources.arrow_left;
             backwardsButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -61,9 +61,9 @@
             notificationButton.ForeColor = SystemColors.ButtonHighlight;
             notificationButton.Image = Properties.Resources.envelope;
             notificationButton.ImageAlign = ContentAlignment.MiddleRight;
-            notificationButton.Location = new Point(12, 462);
+            notificationButton.Location = new Point(12, 556);
             notificationButton.Name = "notificationButton";
-            notificationButton.Size = new Size(169, 44);
+            notificationButton.Size = new Size(185, 44);
             notificationButton.TabIndex = 4;
             notificationButton.Text = "Notification";
             notificationButton.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -74,12 +74,12 @@
             // 
             notificationsListBox.BackColor = Color.Gray;
             notificationsListBox.BorderStyle = BorderStyle.None;
-            notificationsListBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            notificationsListBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             notificationsListBox.FormattingEnabled = true;
-            notificationsListBox.ItemHeight = 22;
-            notificationsListBox.Location = new Point(16, 106);
+            notificationsListBox.ItemHeight = 25;
+            notificationsListBox.Location = new Point(16, 117);
             notificationsListBox.Name = "notificationsListBox";
-            notificationsListBox.Size = new Size(332, 330);
+            notificationsListBox.Size = new Size(376, 425);
             notificationsListBox.TabIndex = 5;
             notificationsListBox.SelectedIndexChanged += notificationsListBox_SelectedIndexChanged;
             // 
@@ -88,9 +88,9 @@
             deleteListButton.BackColor = Color.LightBlue;
             deleteListButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             deleteListButton.ForeColor = SystemColors.ButtonHighlight;
-            deleteListButton.Location = new Point(187, 462);
+            deleteListButton.Location = new Point(203, 556);
             deleteListButton.Name = "deleteListButton";
-            deleteListButton.Size = new Size(169, 44);
+            deleteListButton.Size = new Size(189, 44);
             deleteListButton.TabIndex = 6;
             deleteListButton.Text = "Delete ";
             deleteListButton.UseVisualStyleBackColor = false;
@@ -113,7 +113,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
-            ClientSize = new Size(368, 518);
+            ClientSize = new Size(404, 612);
             Controls.Add(listLabel);
             Controls.Add(deleteListButton);
             Controls.Add(notificationsListBox);
@@ -121,6 +121,7 @@
             Controls.Add(backwardsButton);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListInfo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ListInfo";
             Load += OnFormLoaded;
             ResumeLayout(false);

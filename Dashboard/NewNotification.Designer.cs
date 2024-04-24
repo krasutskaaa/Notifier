@@ -43,11 +43,11 @@
             // cancelButton
             // 
             cancelButton.BackColor = Color.LightBlue;
-            cancelButton.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            cancelButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             cancelButton.ForeColor = SystemColors.ButtonHighlight;
             cancelButton.Location = new Point(12, 12);
             cancelButton.Name = "cancelButton";
-            cancelButton.Size = new Size(149, 42);
+            cancelButton.Size = new Size(188, 42);
             cancelButton.TabIndex = 3;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = false;
@@ -57,11 +57,11 @@
             // 
             doneButton.BackColor = Color.LightBlue;
             doneButton.FlatAppearance.BorderColor = Color.Brown;
-            doneButton.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            doneButton.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             doneButton.ForeColor = SystemColors.ButtonHighlight;
-            doneButton.Location = new Point(217, 12);
+            doneButton.Location = new Point(206, 12);
             doneButton.Name = "doneButton";
-            doneButton.Size = new Size(157, 42);
+            doneButton.Size = new Size(186, 42);
             doneButton.TabIndex = 4;
             doneButton.Text = "Done";
             doneButton.UseVisualStyleBackColor = false;
@@ -70,31 +70,31 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(118, 68);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label1.Location = new Point(117, 71);
             label1.Name = "label1";
-            label1.Size = new Size(137, 22);
+            label1.Size = new Size(148, 25);
             label1.TabIndex = 5;
             label1.Text = "New notification";
             // 
             // newNotificationNameTextBox
             // 
-            newNotificationNameTextBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            newNotificationNameTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             newNotificationNameTextBox.ForeColor = Color.Gray;
             newNotificationNameTextBox.Location = new Point(12, 113);
             newNotificationNameTextBox.Name = "newNotificationNameTextBox";
-            newNotificationNameTextBox.Size = new Size(362, 28);
+            newNotificationNameTextBox.Size = new Size(380, 30);
             newNotificationNameTextBox.TabIndex = 6;
             newNotificationNameTextBox.Text = "A name";
             // 
             // descriptionTextBox
             // 
-            descriptionTextBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            descriptionTextBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             descriptionTextBox.ForeColor = Color.Gray;
             descriptionTextBox.Location = new Point(12, 162);
             descriptionTextBox.Multiline = true;
             descriptionTextBox.Name = "descriptionTextBox";
-            descriptionTextBox.Size = new Size(362, 85);
+            descriptionTextBox.Size = new Size(380, 85);
             descriptionTextBox.TabIndex = 8;
             descriptionTextBox.Text = "Description";
             // 
@@ -114,11 +114,11 @@
             // 
             myListsLabel.AutoSize = true;
             myListsLabel.BackColor = Color.Brown;
-            myListsLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            myListsLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             myListsLabel.ForeColor = Color.White;
             myListsLabel.Location = new Point(12, 415);
             myListsLabel.Name = "myListsLabel";
-            myListsLabel.Size = new Size(85, 25);
+            myListsLabel.Size = new Size(77, 25);
             myListsLabel.TabIndex = 11;
             myListsLabel.Text = "My lists";
             // 
@@ -126,29 +126,31 @@
             // 
             listsListBox.BackColor = Color.Gray;
             listsListBox.BorderStyle = BorderStyle.None;
-            listsListBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            listsListBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             listsListBox.FormattingEnabled = true;
-            listsListBox.ItemHeight = 22;
-            listsListBox.Location = new Point(12, 443);
+            listsListBox.ItemHeight = 25;
+            listsListBox.Location = new Point(12, 454);
             listsListBox.Name = "listsListBox";
-            listsListBox.Size = new Size(362, 110);
+            listsListBox.Size = new Size(380, 125);
             listsListBox.TabIndex = 12;
             // 
             // newNotificationDateTimePicker
             // 
+            newNotificationDateTimePicker.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             newNotificationDateTimePicker.Location = new Point(12, 312);
+            newNotificationDateTimePicker.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             newNotificationDateTimePicker.Name = "newNotificationDateTimePicker";
-            newNotificationDateTimePicker.Size = new Size(362, 27);
+            newNotificationDateTimePicker.Size = new Size(380, 30);
             newNotificationDateTimePicker.TabIndex = 13;
-            newNotificationDateTimePicker.Value = new DateTime(2023, 1, 1, 0, 0, 0, 0);
+            newNotificationDateTimePicker.Value = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // isImportantCheckBox
             // 
             isImportantCheckBox.AutoSize = true;
-            isImportantCheckBox.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            isImportantCheckBox.Location = new Point(12, 345);
+            isImportantCheckBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            isImportantCheckBox.Location = new Point(12, 359);
             isImportantCheckBox.Name = "isImportantCheckBox";
-            isImportantCheckBox.Size = new Size(106, 26);
+            isImportantCheckBox.Size = new Size(115, 29);
             isImportantCheckBox.TabIndex = 14;
             isImportantCheckBox.Text = "Important";
             isImportantCheckBox.UseVisualStyleBackColor = true;
@@ -158,7 +160,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
-            ClientSize = new Size(386, 565);
+            ClientSize = new Size(404, 612);
             Controls.Add(isImportantCheckBox);
             Controls.Add(newNotificationDateTimePicker);
             Controls.Add(listsListBox);
@@ -171,6 +173,7 @@
             Controls.Add(cancelButton);
             FormBorderStyle = FormBorderStyle.None;
             Name = "NewNotification";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "NewNotification";
             Load += OnFormLoaded;
             ResumeLayout(false);

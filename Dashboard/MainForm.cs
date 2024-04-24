@@ -22,15 +22,13 @@ public partial class MainForm : Form
     {
         var newListForm = new NewList();
         newListForm.ShowDialog();
-        
+
     }
 
     private void notificationButton_Click(object sender, EventArgs e)
     {
         var newNotificationForm = new NewNotification(this, Guid.Empty);
         newNotificationForm.ShowDialog();
-        
-
     }
     private void listsListBox_selectedIndexChanged(object sender, EventArgs e)
     {
@@ -40,15 +38,13 @@ public partial class MainForm : Form
         {
             var listInfoForm = new ListInfo(selectedList);
             listInfoForm.ShowDialog();
-            
         }
-        
     }
 
     private void OnFormLoaded(object sender, EventArgs e)
     {
-
-        var lists = _database.GetALLLists().ToArray();
+        
+        var lists = _database.GetAllLists().ToArray();
         if (lists != null)
         {
             myListsLabel.Show();
@@ -62,34 +58,23 @@ public partial class MainForm : Form
             myListsLabel.Hide();
             listsListBox.Hide();
         }
-        allTasksAmountLabel.Text = _database?.GetALLNotifications().Count().ToString();
+        allTasksAmountLabel.Text = _database?.GetAllNotifications().Count().ToString();
         doneTasksAmountLabel.Text = _database?.GetDoneNotifications().Count().ToString();
         todayTasksAmountLabel.Text = _database?.GetTodayNotifications().Count().ToString();
         scheduledTasksAmountLabel.Text = _database?.GetScheduledNotifications().Count().ToString();
         importantTasksAmountLabel.Text = _database?.GetImportantNotifications().Count().ToString();
-        
+
 
     }
     public void UpdateListsListBox()
     {
         listsListBox.Items.Clear();
-        var lists = _database?.GetALLLists().ToArray();
-        if (lists != null)
-        {
-            myListsLabel.Show();
-            listsListBox.Show();
-            listsListBox.Items.AddRange(lists);
-
-        }
-        else
-        {
-            myListsLabel.Hide();
-            listsListBox.Hide();
-        }
+        var lists = _database?.GetAllLists().ToArray();
+        listsListBox.Items.AddRange(lists);
     }
     public void UpdateDashboard()
     {
-        allTasksAmountLabel.Text = _database?.GetALLNotifications().Count().ToString();
+        allTasksAmountLabel.Text = _database?.GetAllNotifications().Count().ToString();
         doneTasksAmountLabel.Text = _database?.GetDoneNotifications().Count().ToString();
         todayTasksAmountLabel.Text = _database?.GetTodayNotifications().Count().ToString();
         scheduledTasksAmountLabel.Text = _database?.GetScheduledNotifications().Count().ToString();
@@ -151,5 +136,7 @@ public partial class MainForm : Form
         }
 
     }
+
+    
 }
 
